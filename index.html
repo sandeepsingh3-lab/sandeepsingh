@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="A Gemini API-powered travel planning assistant demo.">
+  <title>Gemini Travel Assistant</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="gemini-mark">✦</span><span>Gemini<span class="muted"> Travel AI</span></span></a>
+      <div class="nav-label">WORKSPACE</div>
+      <a class="nav active" href="#planner">✧ <span>Travel planner</span></a>
+      <a class="nav" href="#how-it-works">⌘ <span>How it works</span></a>
+      <div class="side-note"><span class="status-dot"></span> Demo environment</div>
+      <div class="sidebar-bottom">A small project exploring<br>generative AI agents.</div>
+    </aside>
+
+    <main id="planner" class="main">
+      <header class="topbar">
+        <div><div class="eyebrow">GEMINI API PROJECT</div><h1>Travel Assistant Agent</h1></div>
+        <div class="api-pill"><span class="status-dot"></span> API-ready</div>
+      </header>
+
+      <section class="intro">
+        <div class="sparkle">✦</div>
+        <div><h2>Where would you like to go?</h2><p>Describe your trip. I'll help turn your idea into a practical itinerary.</p></div>
+      </section>
+
+      <section class="panel config">
+        <label for="apiKey">Gemini API key <span class="hint">Used in this tab only</span></label>
+        <div class="key-row"><input id="apiKey" type="password" autocomplete="off" placeholder="Paste your Google AI Studio API key"><button id="toggleKey" class="ghost" type="button">Show</button></div>
+        <p class="micro">For this demo, the key is sent directly from your browser to Google's API. Do not use a production key on a public website.</p>
+      </section>
+
+      <section class="panel form-panel">
+        <div class="section-head"><div><div class="eyebrow">PLAN YOUR JOURNEY</div><h3>Trip details</h3></div><span class="step">01 / 01</span></div>
+        <div class="form-grid">
+          <div class="field"><label for="destination">Destination</label><input id="destination" value="Jaipur, Rajasthan" placeholder="e.g. Jaipur, India"></div>
+          <div class="field"><label for="days">Duration</label><select id="days"><option>2 days</option><option selected>3 days</option><option>4 days</option><option>5 days</option><option>7 days</option></select></div>
+          <div class="field"><label for="budget">Approx. budget</label><select id="budget"><option>Budget-friendly</option><option selected>Moderate</option><option>Comfort</option><option>Luxury</option></select></div>
+          <div class="field"><label for="interests">Interests</label><input id="interests" value="Culture, food, forts and local markets" placeholder="What do you enjoy?"></div>
+        </div>
+        <button id="generate" class="primary"><span>✦</span> Generate itinerary <span class="arrow">→</span></button>
+        <div id="error" class="error" role="alert" hidden></div>
+      </section>
+
+      <section class="result-wrap">
+        <div class="result-title"><div><div class="eyebrow">YOUR AI-GENERATED PLAN</div><h3>Travel blueprint</h3></div><span id="resultStatus" class="result-status">Waiting for request</span></div>
+        <div id="result" class="result panel empty">
+          <div class="empty-icon">✧</div><h3>Your itinerary will appear here</h3><p>Add your Gemini API key and trip details, then generate a plan.</p>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="how">
+        <div class="eyebrow">BEHIND THE EXPERIENCE</div><h3>From prompt to plan</h3>
+        <div class="steps">
+          <div><span>01</span><b>Understand</b><p>Capture destination, duration, budget and interests.</p></div>
+          <div><span>02</span><b>Reason</b><p>Send the travel request to Gemini for a tailored response.</p></div>
+          <div><span>03</span><b>Present</b><p>Display the itinerary and practical recommendations.</p></div>
+        </div>
+      </section>
+      <footer>Built with curiosity by Sandeep Singh · Gemini API demo</footer>
+    </main>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
